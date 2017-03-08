@@ -1,9 +1,10 @@
 """
 Panopto API mock data class
 """
+from importlib import import_module
+from logging import getLogger
+
 from django.conf import settings
-from django.utils.importlib import import_module
-from django.utils.log import getLogger
 from hashlib import md5
 import sys
 import os

@@ -1,8 +1,9 @@
 """
 Base module to support exposing Panopto SOAP Service methods
 """
+from logging import getLogger
+
 from django.conf import settings
-from django.utils.log import getLogger
 from suds.client import Client
 from suds.xsd.schema import Schema
 from suds import WebFault
