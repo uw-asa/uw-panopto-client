@@ -1,0 +1,9 @@
+language: python
+env:
+  - PIP_PKGS="Django"
+  - PIP_PKGS="Django==1.8.*"
+install:
+  - pip install pep8 $PIP_PKGS -e .
+script:
+  - pep8 panopto_client
+  - python runtests.py
