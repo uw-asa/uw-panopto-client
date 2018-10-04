@@ -21,7 +21,7 @@ setup(
     include_package_data=True,
     install_requires = [
         'commonconf>=0.6',
-        'suds-jurko==0.6',
+        'suds-community',
     ],
     license='Apache License, Version 2.0',
     description='An application providing access to the Panopto Video Platform SOAP API',
