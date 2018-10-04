@@ -6,6 +6,8 @@ python:
 - '3.5'
 - '3.6'
 before_script:
+- if [ $TRAVIS_PYTHON_VERSION = 2.7 ]; then pip install git+https://github.com/suds-community/suds.git#egg=suds-community ; fi
+- if [ $TRAVIS_PYTHON_VERSION = 2.7 ]; then pip install 'commonconf<1.0' ; fi
 - pip install -e .
 - pip install pep8
 - pip install nose2
