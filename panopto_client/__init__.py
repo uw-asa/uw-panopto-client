@@ -19,27 +19,6 @@ class PanoptoAPIException(Exception):
     pass
 
 
-#
-# monkeypatch suds Schema class for circular wsdl import sensitivity
-#
-def schema_patch_init(self, root, baseurl, options, container=None):
-    self.instance_cache[baseurl] = self
-    self.__schema_init__(root, baseurl, options, container=container)
-
-
-def schema_patch_instance(self, root, baseurl, options):
-    if baseurl not in self.instance_cache:
-        self.instance_cache[baseurl] = Schema(root, baseurl, options)
-
-    return self.instance_cache[baseurl]
-
-
-setattr(Schema, 'instance_cache', WeakValueDictionary())
-setattr(Schema, '__schema_init__', Schema.__init__)
-setattr(Schema, '__init__', schema_patch_init)
-setattr(Schema, 'instance', schema_patch_instance)
-
-
 class PanoptoAPI(object):
     """Panopto API base
        For help, see: http://support.panopto.com/pages/PanoptoApiHelp
