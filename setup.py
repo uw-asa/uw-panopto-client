@@ -20,7 +20,8 @@ setup(
     packages=['panopto_client'],
     include_package_data=True,
     install_requires = [
-        'commonconf>=0.6',
+        'commonconf>=0.6,<1.0 ; python_version < "3"',
+        'commonconf>=0.6 ; python_version >= "3"',
         'suds-community',
     ],
     license='Apache License, Version 2.0',
